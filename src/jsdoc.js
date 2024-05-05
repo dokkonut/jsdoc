@@ -48,12 +48,19 @@ class HElement {
 function make(type, ...params) {
     return new HElement(type, ...params);
 }
-function add(e){
+function addToBody(e){
     if(!(e instanceof HElement)){
         console.error("Argument needs to be an Element type");
         return;
     }
     document.body.appendChild(e.toThing());
+}
+function addToHead(e){
+    if(!(e instanceof HElement)){
+        console.error("Argument needs to be an Element type");
+        return;
+    }
+    document.head.appendChild(e.toThing());
 }
 function remove(e){
     if(!(e instanceof HElement)){
@@ -63,4 +70,7 @@ function remove(e){
     if(e.toThing().parentNode){
         e.toThing().parentNode.removeChild(e.toThing());
     }
+}
+function setTitle(title){
+    document.title = title;
 }
