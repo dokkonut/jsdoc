@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Bar Example</title>
+    <script src="../../src/jsdoc.js"></script>
+    <style>
+        body {
+            background-color: gray;
+        }
+        div.menuBar {
+            background-color: black;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let div = make("div","class","menuBar");
+        div.addChild(make("a","class","link","text","Go To Google").addParam("href","https://google.com"));
+        div.addChild(make("button","text","Youtube","href","https://youtube.com"));
+        add(div);
+    </script>
+</body>
+</html>
