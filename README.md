@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const style = makeStyle();
     style.addElement(makeS("body","background-color","black"));
     style.addElement(makeS("h1","color","white","font-size","200%"));
+    style.add();
 });
 ```
 
