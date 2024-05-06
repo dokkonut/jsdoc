@@ -217,7 +217,7 @@ function readFile(path) {
     const fs = require("fs");
     var oPath = path;
     if(!fs.existsSync(path)){
-        path = path + ".html";
+        path = oPath + ".html";
     }
     if(!fs.existsSync(path)){
         path = oPath + ".css";
