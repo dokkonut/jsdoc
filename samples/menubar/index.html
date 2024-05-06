@@ -8,23 +8,16 @@
 </head>
 <body>
     <script>
-        let div = make("div","class","menuBar");
-        div.addChild(make("a","class","link","text","Go To Google").addParam("href","https://google.com"));
-        div.addChild(make("button","text","Youtube"));
+        let div = makeH("div","class","menuBar");
+        div.addChild(makeH("a","class","link","text","Go To Google").addParam("href","https://google.com"));
+        div.addChild(makeH("button","text","Youtube"));
         addToBody(div);
-        let style = make("style","text",`body {
-            background-color: gray;
-        }
-        div.menuBar {
-            background-color: black;
-        }
-        a {
-            color: white;
-            text-decoration: none;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }`);
-        addToHead(style);
-        setTitle("Page Generated");
+        let style = makeStyle();
+        style.addElement(makeS("body","background-color","gray"));
+        style.addElement(makeS("div.menuBar","background-color","black"));
+        style.addElement(makeS("a","color","white","text-decoration","none","font-family",
+            "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"));
+        style.add();
     </script>
 </body>
 </html>
