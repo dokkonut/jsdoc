@@ -238,6 +238,9 @@ function getPath(path) {
         path = oPath + ".gif";
     }
     if(!fs.existsSync(path)){
+        path = oPath + ".ico";
+    }
+    if(!fs.existsSync(path)){
         path = oPath + ".bin";
     }
     if(!fs.existsSync(path)){
@@ -289,6 +292,12 @@ function getContentType(path) {
             break;
         case '.png':
             contentType = 'image/png';
+            break;
+        case '.ico':
+            contentType = 'image/x-icon';
+            break;
+        case '.gif':
+            contentType = 'image/gif';
             break;
         case '.jpg':
         case '.jpeg':
