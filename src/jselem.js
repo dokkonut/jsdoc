@@ -215,6 +215,7 @@ function makeStyle(...elements) {
  */
 function getPath(path) {
     var oPath = path;
+    const fs = require("fs");
     if(!fs.existsSync(path)){
         path = oPath + ".html";
     }
