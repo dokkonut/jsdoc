@@ -26,6 +26,17 @@ document.addEventListener("DOMContentLoaded", function() {
 ```
 
 
+## Installation
+
+
+```bash
+npm install https://github.com/jselem
+```
+```javascript
+const jselem = require("jselem");
+//do something now
+```
+    
 ## Documentation
 
-Documentation is inside of the JavaScript file. Will improve later
+Documentation is inside of the JavaScript file. Will make a proper one later
