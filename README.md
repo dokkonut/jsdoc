@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 ```bash
-npm install https://github.com/jselem
+npm install https://github.com/dokkonut/jselem
 ```
 ```javascript
 const jselem = require("jselem");
