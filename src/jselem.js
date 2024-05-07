@@ -304,7 +304,7 @@ function getContentType(path) {
             contentType = 'application/xml';
             break;
         case '.bin':
-            contentType = 'application/octet.stream';
+            contentType = 'application/octet-stream';
             break;
     }
     return contentType;
