@@ -13,6 +13,5 @@
     "type": "git",
     "url": "https://github.com/dokkonut/jselem.git"
   },
-  "type": "module",
-  "bin": "src/jselem.js"
+  "type": "module"
 }

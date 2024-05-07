@@ -293,3 +293,17 @@ function getContentType(path) {
     }
     return contentType;
 }
+module.exports = {
+    HElement,
+    makeH,
+    addToBody,
+    addToHead,
+    remove,
+    SElement,
+    Style,
+    makeS,
+    makeStyle,
+    getPath,
+    readFile,
+    getContentType
+}
