@@ -244,6 +244,12 @@ function getPath(path) {
         path = oPath + ".pdf";
     }
     if(!fs.existsSync(path)){
+        path = oPath + ".json";
+    }
+    if(!fs.existsSync(path)){
+        path = oPath + ".xml";
+    }
+    if(!fs.existsSync(path)){
         path = oPath + ".txt";
     }
     if(!fs.existsSync(path)){
@@ -290,6 +296,15 @@ function getContentType(path) {
             break;
         case '.pdf':
             contentType = 'application/pdf';
+            break;
+        case '.json':
+            contentType = 'application/json';
+            break;
+        case '.xml':
+            contentType = 'application/xml';
+            break;
+        case '.bin':
+            contentType = 'application/octet.stream';
             break;
     }
     return contentType;
