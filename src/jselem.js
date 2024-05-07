@@ -256,6 +256,27 @@ function getPath(path) {
         path = oPath + ".txt";
     }
     if(!fs.existsSync(path)){
+        path = oPath + ".md";
+    }
+    if(!fs.existsSync(path)){
+        path = oPath + ".mp3";
+    }
+    if(!fs.existsSync(path)){
+        path = oPath + ".wav";
+    }
+    if(!fs.existsSync(path)){
+        path = oPath + ".ogg";
+    }
+    if(!fs.existsSync(path)){
+        path = oPath + ".mp4";
+    }
+    if(!fs.existsSync(path)){
+        path = oPath + ".avi";
+    }
+    if(!fs.existsSync(path)){
+        path = oPath + ".mov";
+    }
+    if(!fs.existsSync(path)){
         path = oPath;
     }
     return path;
@@ -279,7 +300,7 @@ function readFile(path) {
  */
 function getContentType(path) {
     const fp = require("path");
-    let contentType = "text/plain";
+    let contentType = "application/octet-stream";
     switch (fp.extname(path)) {
         case '.html':
             contentType = 'text/html';
@@ -312,8 +333,30 @@ function getContentType(path) {
         case '.xml':
             contentType = 'application/xml';
             break;
+        case '.md':
+        case '.txt':
+            contentType = 'text/plain';
+            break;
         case '.bin':
             contentType = 'application/octet-stream';
+            break;
+        case '.mp3':
+            contentType = 'audio/mpeg';
+            break;
+        case '.wav':
+            contentType = 'audio/wave';
+            break;
+        case '.ogg':
+            contentType = 'audio/ogg';
+            break;
+        case '.mp4':
+            contentType = 'video/mp4';
+            break;
+        case '.avi':
+            contentType = 'video/x-msvideo';
+            break;
+        case '.mov':
+            contentType = 'video/quicktime';
             break;
     }
     return contentType;
