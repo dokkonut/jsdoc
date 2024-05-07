@@ -293,6 +293,13 @@ function getContentType(path) {
     }
     return contentType;
 }
+/**
+ * Gets the content type of a path, adding extensions
+ * @param {string} path The path
+ */
+function getContentTypeFix(path) {
+    return getContentType(getPath(path));
+}
 module.exports = {
     HElement,
     makeH,
@@ -305,5 +312,6 @@ module.exports = {
     makeStyle,
     getPath,
     readFile,
-    getContentType
+    getContentType,
+    getContentTypeFix
 }
