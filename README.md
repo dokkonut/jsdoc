@@ -28,4 +28,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
 ## Documentation
 
-Documentation is inside of the JavaScript file.
+Documentation is inside of the JavaScript file. Will improve later
