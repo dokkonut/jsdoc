@@ -209,12 +209,11 @@ function makeStyle(...elements) {
 
 // File System
 /**
- * Reads a file from the file system, adding extensions if needed
- * @param {string} path 
- * @returns the data of the file, if it exists
+ * Checks a file's existence and if it doesn't exist, it adds common extensions;
+ * @param {string} path The path to check
+ * @returns The final path, or the original if not found
  */
-function readFile(path) {
-    const fs = require("fs");
+function getPath(path) {
     var oPath = path;
     if(!fs.existsSync(path)){
         path = oPath + ".html";
@@ -235,10 +234,7 @@ function readFile(path) {
         path = oPath + ".jpeg";
     }
     if(!fs.existsSync(path)){
-        path = oPath + ".bpm";
-    }
-    if(!fs.existsSync(path)){
-        path = oPath + ".img";
+        path = oPath + ".gif";
     }
     if(!fs.existsSync(path)){
         path = oPath + ".bin";
@@ -250,7 +246,50 @@ function readFile(path) {
         path = oPath + ".txt";
     }
     if(!fs.existsSync(path)){
+        path = oPath;
+    }
+    return path;
+}
+/**
+ * Reads a file from the file system, adding extensions if needed
+ * @param {string} path 
+ * @returns the data of the file, if it exists
+ */
+function readFile(path) {
+    const fs = require("fs");
+    path = getPath(path);
+    if(!fs.existsSync(path)){
         return null;
     }
     return fs.readFileSync(path);
+}
+/**
+ * Gets the content type of a path
+ * @param {string} path The path
+ */
+function getContentType(path) {
+    const fp = require("path");
+    let contentType = "text/plain";
+    switch (fp.extname(path)) {
+        case '.html':
+            contentType = 'text/html';
+            break;
+        case '.css':
+            contentType = 'text/css';
+            break;
+        case '.js':
+            contentType = 'text/javascript';
+            break;
+        case '.png':
+            contentType = 'image/png';
+            break;
+        case '.jpg':
+        case '.jpeg':
+            contentType = 'image/jpg';
+            break;
+        case '.pdf':
+            contentType = 'application/pdf';
+            break;
+    }
+    return contentType;
 }
