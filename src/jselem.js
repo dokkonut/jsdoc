@@ -221,6 +221,7 @@ function getPath(path) {
     }
     if(!fs.existsSync(path)){
         path = oPath + "/index.html";
+        console.log(path + ": " + fs.existsSync(path));
     }
     if(!fs.existsSync(path)){
         path = oPath + ".css";
