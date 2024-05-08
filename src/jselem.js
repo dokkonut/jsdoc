@@ -220,6 +220,9 @@ function getPath(path) {
         path = oPath + ".html";
     }
     if(!fs.existsSync(path)){
+        path = oPath + "/index.html";
+    }
+    if(!fs.existsSync(path)){
         path = oPath + ".css";
     }
     if(!fs.existsSync(path)){
