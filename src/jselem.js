@@ -208,6 +208,11 @@ function makeStyle(...elements) {
 }
 
 // File System
+function demo(path) {
+    const fs = require("fs");
+    path = path + "/index.html";
+    return path + ": " + fs.existsSync(path);
+}
 /**
  * Checks a file's existence and if it doesn't exist, it adds common extensions;
  * @param {string} path The path to check
@@ -221,7 +226,6 @@ function getPath(path) {
     }
     if(!fs.existsSync(path)){
         path = oPath + "/index.html";
-        console.log(path + ": " + fs.existsSync(path));
     }
     if(!fs.existsSync(path)){
         path = oPath + ".css";
@@ -382,6 +386,7 @@ module.exports = {
     Style,
     makeS,
     makeStyle,
+    demo,
     getPath,
     readFile,
     getContentType,
