@@ -13,9 +13,6 @@ JSElem is a simple and light-weight JavaScript library with multiple features fo
 
 
 ## Usage/Examples
-```html
-<script src="path/to/downloaded/file/jselem.js"></script>
-```
 ```javascript
 document.addEventListener("DOMContentLoaded", function() {
     const style = makeStyle();
@@ -23,6 +20,12 @@ document.addEventListener("DOMContentLoaded", function() {
     style.addElement(makeS("h1","color","white","font-size","200%"));
     style.add();
 });
+```
+```javascript
+let pathName = "home";
+pathName = jselem.getPath("src"+pathName);
+let contentType = jselem.getContentTypeFix(pathName);
+console.log(pathName+": "+contentType);
 ```
 
 
