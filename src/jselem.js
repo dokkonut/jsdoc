@@ -216,74 +216,100 @@ function makeStyle(...elements) {
  */
 function getPath(path) {
     var oPath = path;
-    const fs = require("fs");
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + "/index.html";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + ".html";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + ".css";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + ".js";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + ".png";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + ".jpg";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + ".jpeg";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + ".gif";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + ".ico";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + ".bin";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + ".pdf";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + ".json";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + ".xml";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + ".txt";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + ".md";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + ".mp3";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + ".wav";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + ".ogg";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + ".mp4";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + ".avi";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath + ".mov";
     }
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         path = oPath;
     }
     return path;
+}
+/**
+ * Checks if a file exists and is a File
+ * @param {string} path The path
+ * @returns if the file exists and is a file
+ */
+function existsFile(path) {
+    const fs = require("fs");
+    return fs.existsSync(path) && fs.lstatSync(path).isFile();
+}
+/**
+ * Checks if a file exists and is a Directory
+ * @param {string} path The path
+ * @returns if the file exists and is a directory
+ */
+function existsDirectory(path) {
+    const fs = require("fs");
+    return fs.existsSync(path) && fs.lstatSync(path).isDirectory();
+}
+/**
+ * Checks if a file exists
+ * @param {string} path The path
+ * @returns if the file exists
+ */
+function exists(path) {
+    const fs = require("fs");
+    return fs.existsSync(path);
 }
 /**
  * Reads a file from the file system, adding extensions if needed
@@ -293,7 +319,7 @@ function getPath(path) {
 function readFile(path) {
     const fs = require("fs");
     path = getPath(path);
-    if(!fs.existsSync(path)){
+    if(!existsFile(path)){
         return null;
     }
     return fs.readFileSync(path);
@@ -383,6 +409,9 @@ module.exports = {
     makeS,
     makeStyle,
     getPath,
+    existsFile,
+    existsDirectory,
+    exists,
     readFile,
     getContentType,
     getContentTypeFix
