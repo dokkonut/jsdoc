@@ -382,7 +382,6 @@ module.exports = {
     Style,
     makeS,
     makeStyle,
-    demo,
     getPath,
     readFile,
     getContentType,
