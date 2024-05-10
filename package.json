@@ -2,7 +2,8 @@
   "name": "jselem",
   "version": "1.0.0",
   "description": "JSElem is a simple and light-weight JavaScript library with multiple features for HTML websites and NodeJS servers.",
-  "main": "src/jselem.js",
+  "main": "src/jselem",
+  "types": "src/jselem",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
